@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
+        #home {
+            position: relative;
+            width: 100%;
+            height: 940px;
+        }
+
         #index {
             position: absolute;
             left: 0;
@@ -25,7 +32,7 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        pre {
+        .typed-text {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -34,20 +41,94 @@
             font-weight: bold;
             color: white;
             z-index: 5;
+            text-align: center;
         }
+
+        #about-me {
+            width: 100%;
+            height: 940px;
+            background-color: white;
+            box-sizing: border-box;
+            padding-top: 30px;
+        }
+
+        #about-me_inner {
+            display: flex;
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        #about-me_inner > nav {
+            width: 100%;
+        }
+
+        #about-me_inner h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+
+
+        #introduce,
+        #experience {
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+        }
+
+
     </style>
 </head>
 <body>
-    <div th:include="header.html"></div>
-    <div id="index">
+<div th:include="header.html"></div>
 
-    </div>
-    <div id="index_overlay">
+<section id="home">
+    <div id="index"></div>
+    <div id="index_overlay"></div>
+    <pre class="typed-text"></pre>
+</section>
 
+<section id="about-me">
+    <div id="about-me_inner">
+        <nav>
+            <h1>INTRODUCE</h1>
+            <div id="introduce">
+                안녕하세요. 백엔드 개발자를 준비하고 있는 옥창혁입니다.<br>
+                개발자를 꿈꾸기 시작하고, 처음 배우기 시작한 프로그래밍은<br>
+                익숙치 않고 즐거움보다는 괴로움이 더 앞선 일이었습니다.<br>
+                <br>
+                그러나 끈기를 가지고 여러가지 문제에 부딪히고 깨지면서,<br>
+                점점 발전하는 언어 능력에 재미를 깨닫고 보람을 느끼기 시작했습니다.<br>
+                <br>
+                지금은 새로운 것을 배우는 데에 거리낌 없이 도전하여<br>
+                자신을 발전시키는 일이 즐거운 사람이 되었습니다.<br>
+                함께 가치를 만들어 나가는 개발자를 목표로 열심히 달리겠습니다.
+            </div>
+        </nav>
+
+        <nav>
+            <h1>EXPERIENCE</h1>
+            <div id="experience">
+            </div>
+        </nav>
     </div>
-    <pre>
-        안녕하세요! 백엔드 개발자 옥창혁의<br>
-        포트폴리오 입니다이야이야이야
-    </pre>
+</section>
+
+<script>
+    function greetingHandler() {
+        const greetings = "안녕하세요! 백엔드 개발자 옥창혁의 포트폴리오 입니다."
+        const greetingBox = document.querySelector('.typed-text')
+        greetingBox.innerHTML = ''
+
+        for(let i = 0; i < greetings.length; i++) {
+            setTimeout(() => {
+                greetingBox.innerHTML += greetings[i]
+            }, i * 100)
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", greetingHandler)
+</script>
 </body>
 </html>
