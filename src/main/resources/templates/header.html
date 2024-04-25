@@ -72,25 +72,34 @@
             background-color: black;
             opacity: 0.7;
         }
+
+        .red {
+            border-bottom: 4px solid red;
+        }
+
+        .titles {
+            font-size: 50px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 <header class="flex center">
     <ul>
-        <li>
+        <li class="red">
             <a href="#home">HOME</a>
         </li>
         <li>
             <a href="#about-me">ABOUT ME</a>
         </li>
         <li>
-            <a>SKILLS</a>
+            <a href="#skills">SKILLS</a>
         </li>
         <li>
             <a>PROJECT</a>
         </li>
         <li>
-            <a>COMMENTARY</a>
+            <a>CONTACT</a>
         </li>
     </ul>
 </header>
@@ -99,6 +108,21 @@
     const header = document.querySelector("header")
 
     window.onscroll = function() {
+        const items = document.querySelectorAll('section')
+        const menus = document.querySelectorAll('header > ul > li')
+        items.forEach((event, index) => {
+            let rect = event.getBoundingClientRect()
+            let elementTop = rect.top
+            console.log(elementTop)
+
+            if(Math.abs(elementTop) <= 470 && Math.abs(elementTop) >= 0) {
+                menus[index].classList.add('red')
+            }
+            else {
+                menus[index].classList.remove('red')
+            }
+        })
+
         let scrollY = window.scrollY
         if(scrollY > 100) {
             header.style.backgroundColor = 'black'
@@ -107,4 +131,9 @@
             header.style.backgroundColor = ''
         }
     }
+
+
+
+
+
 </script>

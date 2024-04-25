@@ -44,12 +44,28 @@
             text-align: center;
         }
 
-        #about-me {
+        #about-me,
+        #skills {
             width: 100%;
             height: 940px;
             background-color: white;
             box-sizing: border-box;
             padding-top: 30px;
+        }
+
+        #about-me_title,
+        #skills_title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #people {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            background-image: url('/image/people.png');
+            background-size: cover;
         }
 
         #about-me_inner {
@@ -60,24 +76,167 @@
             flex-direction: column;
         }
 
-        #about-me_inner > nav {
+        #about-me_inner_top,
+        #about-me_inner_bottom {
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #about-me_inner_top > nav,
+        #about-me_inner_bottom > nav {
+            width: 50%;
         }
 
         #about-me_inner h1 {
+            color: deepskyblue;
             font-size: 40px;
-            text-align: center;
         }
 
 
         #introduce,
-        #experience {
+        #experience,
+        #awards {
             width: 100%;
-            text-align: center;
             font-weight: 500;
         }
 
+        #gear {
+            width: 50px;
+            height: 50px;
+            background-image: url('/image/gear.png');
+            background-size: cover;
+            margin-right: 20px;
+        }
 
+        #skills_inner {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #skills_inner h1 {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        #skills_inner > nav {
+            width: 24%;
+        }
+
+        #programming {
+            width: 200px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 100px skyblue inset;
+        }
+
+        #language,
+        #backend_skill,
+        #tool,
+        #collaborate {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #language > div,
+        #backend_skill > div,
+        #tool > div,
+        #collaborate > div {
+            width: 100px;
+            height: 60px;
+            margin-top: 15px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #java {
+            background-image: url('/image/java.png');
+        }
+
+        #c {
+            background-image: url('/image/c.png');
+        }
+
+        #python {
+            width: 200px !important;
+            background-image: url('/image/python.svg');
+        }
+
+        #javascript {
+            background-image: url('/image/javascript.png');
+        }
+
+        #backend {
+            width: 200px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 100px yellowgreen inset;
+        }
+
+        #jsp {
+            background-position: center !important;
+            background-image: url("/image/jsp.png");
+        }
+
+        #spring {
+            background-image: url("/image/spring.png");
+            width: 200px !important;
+            height: 100px !important;
+            background-size: 100% !important;
+            background-repeat: no-repeat;
+        }
+
+        #tools {
+            width: 200px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 100px darksalmon inset;
+        }
+
+        #tool > div {
+            width: 200px !important;
+        }
+
+        #eclipse {
+            background-image: url('/image/eclipse.png');
+        }
+
+        #sts {
+            background-image: url('/image/sts.svg');
+        }
+
+        #intelliJ {
+            background-image: url('/image/IntelliJ.png');
+        }
+
+        #vscode {
+            background-image: url('/image/vscode.png');
+        }
+
+        #collaboration {
+            width: 200px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 100px orchid inset;
+        }
+
+        #collaborate > div {
+            width: 200px !important;
+        }
+
+        #github {
+            background-image: url('/image/github.png');
+        }
+
+        #sourceTree {
+            background-image: url('/image/sourcetree.png');
+        }
     </style>
 </head>
 <body>
@@ -90,26 +249,94 @@
 </section>
 
 <section id="about-me">
+    <div id="about-me_title">
+        <div id="people"></div>
+        <h1 class="titles">ABOUT ME</h1>
+    </div>
+
     <div id="about-me_inner">
-        <nav>
-            <h1>INTRODUCE</h1>
-            <div id="introduce">
-                안녕하세요. 백엔드 개발자를 준비하고 있는 옥창혁입니다.<br>
-                개발자를 꿈꾸기 시작하고, 처음 배우기 시작한 프로그래밍은<br>
-                익숙치 않고 즐거움보다는 괴로움이 더 앞선 일이었습니다.<br>
-                <br>
-                그러나 끈기를 가지고 여러가지 문제에 부딪히고 깨지면서,<br>
-                점점 발전하는 언어 능력에 재미를 깨닫고 보람을 느끼기 시작했습니다.<br>
-                <br>
-                지금은 새로운 것을 배우는 데에 거리낌 없이 도전하여<br>
-                자신을 발전시키는 일이 즐거운 사람이 되었습니다.<br>
-                함께 가치를 만들어 나가는 개발자를 목표로 열심히 달리겠습니다.
+        <div id="about-me_inner_top">
+            <nav>
+                <h1>INTRODUCE</h1>
+                <div id="introduce">
+                    안녕하세요. JAVA 백엔드 개발자 옥창혁입니다.<br>
+                    개발자를 꿈꾸기 시작하고, 처음 배우기 시작한 프로그래밍은<br>
+                    익숙치 않고 즐거움보다는 어려움이 더 앞선 일이었습니다.<br>
+                    <br>
+                    그러나 끈기를 가지고 여러가지 문제에 부딪히고 깨지면서,<br>
+                    점점 발전하는 언어 능력에 재미를 깨닫고 보람을 느끼기 시작했습니다.<br>
+                    <br>
+                    지금은 새로운 것을 배우는 데에 거리낌 없이 도전하여<br>
+                    자신을 발전시키는 일을 즐기는 사람이 되었습니다.<br>
+                    함께 가치를 만들어 나가는 개발자를 목표로 열심히 달리겠습니다.
+                </div>
+            </nav>
+
+            <nav>
+                <h1>EXPERIENCE</h1>
+                <div id="experience">
+                    <p>- 2021.10 ~ 2023.01 KGITBANK부산학원 단과과정 수강</p>
+                    <p>- 2023.10 ~ 2024.04 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 수료</p>
+                </div>
+            </nav>
+        </div>
+
+        <div id="about-me_inner_bottom">
+            <nav>
+                <h1>AWARDS</h1>
+                <div id="awards">
+                    <p>- 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 중간평가 최우수상</p>
+                    <p>- 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 최종평가 최우수상</p>
+                </div>
+            </nav>
+            <nav>
+                <h1>QUALIFICATION</h1>
+                <div id="qualification">
+                    <p>- 2022.09 정보처리기사</p>
+                    <p>- 2023.12 SQLD</p>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div id="skills_title">
+        <div id="gear"></div>
+        <h1 class="titles">SKILLS</h1>
+    </div>
+
+    <div id="skills_inner">
+        <nav id="programming">
+            <h1>Programming Language</h1>
+            <div id="language">
+                <div id="java"></div>
+                <div id="c"></div>
+                <div id="python"></div>
+                <div id="javascript"></div>
             </div>
         </nav>
-
-        <nav>
-            <h1>EXPERIENCE</h1>
-            <div id="experience">
+        <nav id="backend">
+            <h1>Back-End</h1>
+            <div id="backend_skill">
+                <div id="jsp"></div>
+                <div id="spring"></div>
+            </div>
+        </nav>
+        <nav id="tools">
+            <h1>Tools</h1>
+            <div id="tool">
+                <div id="eclipse"></div>
+                <div id="sts"></div>
+                <div id="intelliJ"></div>
+                <div id="vscode"></div>
+            </div>
+        </nav>
+        <nav id="collaboration">
+            <h1>Collaboration</h1>
+            <div id="collaborate">
+                <div id="github"></div>
+                <div id="sourceTree"></div>
             </div>
         </nav>
     </div>
