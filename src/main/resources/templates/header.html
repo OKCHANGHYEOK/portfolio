@@ -96,7 +96,7 @@
             <a href="#skills">SKILLS</a>
         </li>
         <li>
-            <a>PROJECT</a>
+            <a href="#project">PROJECT</a>
         </li>
         <li>
             <a>CONTACT</a>
@@ -113,7 +113,6 @@
         items.forEach((event, index) => {
             let rect = event.getBoundingClientRect()
             let elementTop = rect.top
-            console.log(elementTop)
 
             if(Math.abs(elementTop) <= 470 && Math.abs(elementTop) >= 0) {
                 menus[index].classList.add('red')
