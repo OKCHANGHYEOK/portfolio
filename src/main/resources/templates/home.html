@@ -5,6 +5,8 @@
     <title>portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
         #home {
             position: relative;
             width: 100%;
@@ -103,6 +105,19 @@
         #awards {
             width: 100%;
             font-weight: 500;
+        }
+
+        .readme {
+            all: unset;
+            width: 40px;
+            height: 40px;
+            background-image: url("/image/readme.png");
+            background-size: cover;
+        }
+        
+        .readme:hover {
+            cursor: pointer;
+            opacity: 0.7;
         }
 
         #gear {
@@ -261,19 +276,56 @@
         .project-item {
             width: 100%;
             height: 650px;
-            border-radius: 20px;
-            background-color: aliceblue;
-            box-shadow: 1px 1px 20px lightblue inset;
+            background-color: rgba(211, 211, 211, 0.2);
+            box-shadow: 0 3px 10px black;
             box-sizing: border-box;
             padding-top: 10px;
         }
 
         .subject {
-            font-size: 35px;
+            margin: 0;
+            font-size: 40px;
+            font-family: "Black Han Sans", sans-serif;
+            font-weight: 400;
         }
 
         #final_project > * {
             text-align: center;
+        }
+
+        #readme_container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 10;
+        }
+
+        #readme_close_btn {
+            all: unset;
+            position: absolute;
+            top: 5px;
+            right: 30px;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #readme_content {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 600px;
+            height: 100%;
+            background-size: 100% 100%;
+            transform: translate(-50%);
         }
     </style>
 </head>
@@ -284,6 +336,13 @@
     <div id="index"></div>
     <div id="index_overlay"></div>
     <pre class="typed-text"></pre>
+</section>
+
+<section class="hidden" id="readme_container">
+    <button id="readme_close_btn">X</button>
+    <div id="readme_content">
+
+    </div>
 </section>
 
 <section id="about-me">
@@ -323,8 +382,14 @@
             <nav>
                 <h1>AWARDS</h1>
                 <div id="awards">
-                    <p>- 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 중간평가 최우수상</p>
-                    <p>- 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 최종평가 최우수상</p>
+                    <p>
+                        - 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 중간평가 최우수상
+                        <button value="middle" class="readme"></button>
+                    </p>
+                    <p>
+                        - 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 최종평가 최우수상
+                        <button value="final" class="readme"></button>
+                    </p>
                 </div>
             </nav>
             <nav>
@@ -388,10 +453,11 @@
             <h1 class="titles">PROJECT</h1>
         </div>
         <nav class="project-item" id="final_project">
-            <h1 class="subject">결혼정보회사 매칭 사이트</h1>
-            <p>2024-03 ~ 2024-04</p>
             <div>
+                <h1 class="subject">결혼정보회사 매칭 사이트</h1>
+                <div>
 
+                </div>
             </div>
         </nav>
     </div>
@@ -411,6 +477,25 @@
     }
 
     document.addEventListener("DOMContentLoaded", greetingHandler)
+
+    function readMeHandler(event) {
+        const readme = document.getElementById("readme_container")
+        readme.classList.remove('hidden')
+
+        let url = event.target.getAttribute("value") + '.jpg'
+        const content = document.getElementById("readme_content")
+        content.style.backgroundImage = 'url("/image/' + url + '\")'
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const readmeItem = document.querySelectorAll(".readme")
+        const closeBtn = document.getElementById("readme_close_btn")
+        readmeItem.forEach(e => e.onclick = readMeHandler)
+        closeBtn.onclick = () => {
+            const readme = document.getElementById("readme_container")
+            readme.classList.add('hidden')
+        }
+    })
 </script>
 </body>
 </html>
