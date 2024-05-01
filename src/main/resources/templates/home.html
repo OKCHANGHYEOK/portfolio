@@ -285,8 +285,8 @@
         .subject {
             margin: 0;
             font-size: 40px;
-            font-family: "Black Han Sans", sans-serif;
             font-weight: 400;
+            font-family: "Black Han Sans", sans-serif;
         }
 
         #final_project > * {
@@ -326,6 +326,63 @@
             height: 100%;
             background-size: 100% 100%;
             transform: translate(-50%);
+        }
+
+        .project-item_inner {
+            width: 100%;
+            height: 590px;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        .project-item_inner_images {
+            position: relative;
+            width: 40%;
+            height: 100%;
+        }
+
+       .project-item_inner_images_box {
+           position: absolute;
+           top: 40px;
+           left: 50%;
+           width: 85%;
+           height: 80%;
+           transform: translate(-50%);
+           border: 2px solid black;
+           background-color: lightgrey;
+           color: white;
+           display: flex;
+           align-items: center;
+       }
+
+        .project-item_inner_content {
+            box-sizing: border-box;
+            padding-top: 20px;
+            width: 60%;
+            height: 100%;
+        }
+
+        .project-item_inner_content > p {
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-bottom: 5px;
+            text-align: left;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            border-bottom: 1px dashed black;
+            width: 80%;
+        }
+
+        .project-item_inner_content > p > span:nth-child(2) {
+            margin-left: 10px;
+        }
+
+        .project-main-function {
+            padding: 0;
+            list-style: none;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -387,16 +444,25 @@
                         <button value="middle" class="readme"></button>
                     </p>
                     <p>
-                        - 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 최종평가 최우수상
+                        - 웹 융합 SW 기반 빅데이터 솔루션 개발자 양성과정 최종평가 최우수상<br>(+ 우수인재추천서)
+                    </p>
+                    <p>
                         <button value="final" class="readme"></button>
+                        <button value="recommend" class="readme"></button>
                     </p>
                 </div>
             </nav>
             <nav>
                 <h1>QUALIFICATION</h1>
                 <div id="qualification">
-                    <p>- 2022.09 정보처리기사</p>
-                    <p>- 2023.12 SQLD</p>
+                    <p>
+                        - 2022.09 정보처리기사
+                        <button value="gisa" class="readme"></button>
+                    </p>
+                    <p>
+                        - 2023.12 SQLD
+                        <button value="sqld" class="readme"></button>
+                    </p>
                 </div>
             </nav>
         </div>
@@ -453,12 +519,37 @@
             <h1 class="titles">PROJECT</h1>
         </div>
         <nav class="project-item" id="final_project">
-            <div>
-                <h1 class="subject">결혼정보회사 매칭 사이트</h1>
-                <div>
-
+            <h1 class="subject">결혼정보회사 매칭 사이트</h1>
+                <div class="project-item_inner">
+                    <div class="project-item_inner_images">
+                        <div class="project-item_inner_images_box">
+                            <h2 style="width: 100%;" th:align="center">미리보기</h2>
+                        </div>
+                    </div>
+                    <div class="project-item_inner_content">
+                        <p>
+                            <span>진행 기간 : </span>
+                            <span>2024년 3월 7일 ~ 2024년 4월 4일</span>
+                        </p>
+                        <p>
+                            <span>단위 구분 : </span>
+                            <span>4인 팀프로젝트</span>
+                        </p>
+                        <p>
+                            주제 및 개발 목적
+                        </p>
+                        <p>
+                            결혼 및 출산에 부정적인 2,30대 청년들에게<br>
+                            건전한 결혼 매칭 시스템을 제공함으로써<br>
+                            결혼율을 높이고 사회적 공헌을 실천하고자 개발하였습니다.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            주요 기능
+                        </p>
+                        <ul class="project-main-function">
+                        </ul>
+                    </div>
                 </div>
-            </div>
         </nav>
     </div>
 </section>

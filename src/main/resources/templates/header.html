@@ -73,10 +73,6 @@
             opacity: 0.7;
         }
 
-        .red {
-            border-bottom: 4px solid red;
-        }
-
         .titles {
             font-size: 50px;
             text-align: center;
@@ -91,7 +87,7 @@
 <body>
 <header class="flex center">
     <ul>
-        <li class="red">
+        <li>
             <a href="#home">HOME</a>
         </li>
         <li>
@@ -111,22 +107,7 @@
 
 <script>
     const header = document.querySelector("header")
-
     window.onscroll = function() {
-        const items = document.querySelectorAll('section')
-        const menus = document.querySelectorAll('header > ul > li')
-        items.forEach((event, index) => {
-            let rect = event.getBoundingClientRect()
-            let elementTop = rect.top
-
-            if(Math.abs(elementTop) <= 470 && Math.abs(elementTop) >= 0) {
-                menus[index].classList.add('red')
-            }
-            else {
-                menus[index].classList.remove('red')
-            }
-        })
-
         let scrollY = window.scrollY
         if(scrollY > 100) {
             header.style.backgroundColor = 'black'
@@ -135,9 +116,4 @@
             header.style.backgroundColor = ''
         }
     }
-
-
-
-
-
 </script>
