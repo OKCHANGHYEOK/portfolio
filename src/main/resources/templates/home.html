@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="/js/script.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
@@ -300,7 +301,7 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            z-index: 10;
+            z-index: 25;
         }
 
         #readme_close_btn {
@@ -328,11 +329,14 @@
             transform: translate(-50%);
         }
 
+        .project-item:nth-child(n+3) {
+            margin-top: 100px;
+        }
+
         .project-item_inner {
             width: 100%;
             height: 590px;
             display: flex;
-            box-sizing: border-box;
         }
 
         .project-item_inner_images {
@@ -369,7 +373,7 @@
 
 
         .left_arrow {
-            width: 100px;
+            width: 80px;
             height: 50px;
             background-image: url('/image/leftarrow.png');
             background-size: 100% 100%;
@@ -378,12 +382,17 @@
         }
 
         .right_arrow {
-            width: 100px;
+            width: 80px;
             height: 50px;
             background-image: url('/image/rightarrow.png');
             background-size: 100% 100%;
             border: none;
             cursor: pointer;
+        }
+
+        .left_arrow:hover,
+        .right_arrow:hover {
+            opacity: 0.7;
         }
 
         .project-item_inner_images_slide_count {
@@ -597,9 +606,13 @@
                 <nav class="project-item_inner_images">
                     <div class="project-item_inner_images_box" th:style="'background-image: url(\'/image/' + ${image} + '.png\')'" th:each="image : ${project.images.split(',')}"></div>
                     <div class="project-item_inner_images_slide">
-                        <button class="left_arrow"></button>
-                        <span class="project-item_inner_images_slide_count"></span>
-                        <button class="right_arrow"></button>
+                        <button class="left_arrow" onclick="imageSlideHandler(event)"></button>
+                        <span class="project-item_inner_images_slide_count">
+                            <span class="current_slide">1</span>
+                            <span>/</span>
+                            <span class="total_slide" th:text="${#lists.size(#strings.arraySplit(project.images, ','))}"></span>
+                        </span>
+                        <button class="right_arrow" onclick="imageSlideHandler(event)"></button>
                     </div>
                 </nav>
                 <div class="project-item_inner_content">
@@ -652,38 +665,7 @@
 </section>
 
 <script>
-    function greetingHandler() {
-        const greetings = "안녕하세요! 백엔드 개발자 옥창혁의 포트폴리오 입니다."
-        const greetingBox = document.querySelector('.typed-text')
-        greetingBox.innerHTML = ''
-
-        for(let i = 0; i < greetings.length; i++) {
-            setTimeout(() => {
-                greetingBox.innerHTML += greetings[i]
-            }, i * 100)
-        }
-    }
-
     document.addEventListener("DOMContentLoaded", greetingHandler)
-
-    function readMeHandler(event) {
-        const readme = document.getElementById("readme_container")
-        readme.classList.remove('hidden')
-
-        let url = event.target.getAttribute("value") + '.jpg'
-        const content = document.getElementById("readme_content")
-        content.style.backgroundImage = 'url("/image/' + url + '\")'
-    }
-
-    function imageCountHandler() {
-        const images = document.querySelectorAll('.project-item_inner_images')
-        images.forEach(e => {
-            let count = e.querySelectorAll('.project-item_inner_images_box').length
-            let slideCount = e.querySelector('.project-item_inner_images_slide_count')
-            slideCount.innerText = '1/' + count
-        })
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
         const readmeItem = document.querySelectorAll(".readme")
         const closeBtn = document.getElementById("readme_close_btn")
@@ -693,9 +675,7 @@
             readme.classList.add('hidden')
         }
     })
-
-    document.addEventListener("DOMContentLoaded", imageCountHandler)
-
+    document.addEventListener("DOMContentLoaded", imageSortHandler)
 </script>
 </body>
 </html>
