@@ -51,17 +51,24 @@
 
         #about-me,
         #skills,
-        #project {
+        #contact {
             width: 100%;
             height: 940px;
             box-sizing: border-box;
             padding-top: 30px;
         }
 
+        #project {
+            width: 100%;
+            height: fit-content;
+            box-sizing: border-box;
+            padding-top: 20px;
+        }
 
         #about-me_title,
         #skills_title,
-        #project_title {
+        #project_title,
+        #contact_title {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -341,7 +348,7 @@
 
         .project-item_inner_images {
             position: relative;
-            width: 40%;
+            width: 50%;
             height: 100%;
         }
 
@@ -408,7 +415,7 @@
         .project-item_inner_content {
             box-sizing: border-box;
             padding-top: 20px;
-            width: 60%;
+            width: 50%;
             height: 100%;
         }
 
@@ -422,7 +429,7 @@
             font-weight: bold;
             color: black;
             border-bottom: 1px dashed black;
-            width: 80%;
+            width: 90%;
         }
 
         .project-item_inner_content > p > span:nth-child(2) {
@@ -459,12 +466,21 @@
             background-color: white;
             box-sizing: border-box;
             padding: 10px;
-            width: 80%;
-            height: 130px;
+            width: 90%;
+            height: fit-content;
             font-family: "Noto Sans KR", sans-serif;
             font-size: 14px;
             font-weight: bold;
             text-align: left;
+        }
+
+        #handshake {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            background-image: url('/image/handshake.png');
+            background-size: 100%;
+            background-position: center;
         }
     </style>
 </head>
@@ -661,6 +677,15 @@
                 </div>
             </div>
         </nav>
+    </div>
+</section>
+
+<section id="contact">
+    <div id="contact_inner">
+        <div id="contact_title">
+            <div id="handshake"></div>
+            <h1 class="titles">CONTACT</h1>
+        </div>
     </div>
 </section>
 
