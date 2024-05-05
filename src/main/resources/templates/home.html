@@ -474,13 +474,48 @@
             text-align: left;
         }
 
-        #handshake {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-            background-image: url('/image/handshake.png');
-            background-size: 100%;
-            background-position: center;
+        footer {
+            margin-top: 50px;
+            width: 100%;
+            height: 100px;
+            background-color: #222;
+        }
+
+        #footer_logos {
+            width: 40%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #footer_logos > div {
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #smartphone {
+            width: 40px;
+            height: 40px;
+            background-image: url("/image/smartphone.png");
+            background-size: cover;
+        }
+
+        #email {
+            width: 40px;
+            height: 40px;
+            background-image: url("/image/email.png");
+            background-size: 100% 100%;
+        }
+
+        #github_link {
+            height: 80px;
+            background-image: url("/image/github_white.png");
+            background-size: 100% 100%;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -622,13 +657,13 @@
                 <nav class="project-item_inner_images">
                     <div class="project-item_inner_images_box" th:style="'background-image: url(\'/image/' + ${image} + '.png\')'" th:each="image : ${project.images.split(',')}"></div>
                     <div class="project-item_inner_images_slide">
-                        <button class="left_arrow" onclick="imageSlideHandler(event)"></button>
+                        <button class="left_arrow arrow" onclick="imageSlideHandler(event)"></button>
                         <span class="project-item_inner_images_slide_count">
                             <span class="current_slide">1</span>
                             <span>/</span>
                             <span class="total_slide" th:text="${#lists.size(#strings.arraySplit(project.images, ','))}"></span>
                         </span>
-                        <button class="right_arrow" onclick="imageSlideHandler(event)"></button>
+                        <button class="right_arrow arrow" onclick="imageSlideHandler(event)"></button>
                     </div>
                 </nav>
                 <div class="project-item_inner_content">
@@ -680,14 +715,22 @@
     </div>
 </section>
 
-<section id="contact">
-    <div id="contact_inner">
-        <div id="contact_title">
-            <div id="handshake"></div>
-            <h1 class="titles">CONTACT</h1>
+<footer>
+    <div id="footer_logos">
+        <div id="phone_number">
+            <div id="smartphone"></div>
+            <h2 style="font-size: 18px; color: white;">010-8726-5368</h2>
+        </div>
+        <div id="email_address">
+            <div id="email"></div>
+            <h2 style="font-size: 18px; color: white; margin-left: 5px;">dkdldy2@naver.com</h2>
+        </div>
+        <div id="github_link">
+
         </div>
     </div>
-</section>
+</footer>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", greetingHandler)
@@ -701,6 +744,15 @@
         }
     })
     document.addEventListener("DOMContentLoaded", imageSortHandler)
+    document.addEventListener("DOMContentLoaded", () => {
+        const arrows = document.querySelectorAll('.arrow')
+        arrows.forEach(e => e.onclick = imageSlideHandler)
+    })
+
+    const github = document.getElementById('github_link')
+    github.onclick = () => {
+        location.href = 'https://github.com/OKCHANGHYEOK'
+    }
 </script>
 </body>
 </html>
