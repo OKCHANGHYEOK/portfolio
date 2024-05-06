@@ -26,4 +26,5 @@ public class Project {
     private String backend;
     private String database;
     private String review;
+    private String github;
 }
